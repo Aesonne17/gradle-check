@@ -1,0 +1,5 @@
+cas-services/.gradle/
+build/
+*.class
+.idea/
+/out/
