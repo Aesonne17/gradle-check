@@ -1,0 +1,55 @@
+ext {
+    springBootVersion = '3.0.4'
+    springBootGradlePlugin = '3.0.4'
+    hibernateVersion = '5.6.15.Final'
+    hibernateGradlePluginVersion = '5.6.15.Final'
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:3.0.4'
+    }
+}
+
+allprojects {
+    group 'org.example'
+    version '23.3.1.0-SNAPSHOT'
+    apply plugin: 'java'
+    java {
+        sourceCompatibility(JavaVersion.VERSION_17)
+        targetCompatibility(JavaVersion.VERSION_17)
+    }
+}
+
+subprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+            mavenCentral()
+            maven {
+                url = uri("https://plugins.gradle.org/m2/")
+            }
+        }
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootGradlePlugin}"
+        }
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+    dependencies {
+        implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    }
+    apply plugin: 'org.springframework.boot'
+}

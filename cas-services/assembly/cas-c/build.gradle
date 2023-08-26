@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':adapters:adapter-c')
+    implementation project(':adapters:adapter-o')
+}
